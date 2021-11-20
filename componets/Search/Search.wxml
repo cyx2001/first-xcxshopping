@@ -1,0 +1,5 @@
+<view class="gw_search">
+<navigator url="/pages/search/index" open-type="navigate" style="width: 732rpx; height: 90rpx; display: flex; box-sizing: border-box">
+搜索
+</navigator>
+</view>

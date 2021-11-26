@@ -1,2 +1,7 @@
-<!--pages/search/index.wxml-->
-<text>pages/search/index.wxml</text>
+<view class="search_wrap">
+	<input value="{{inputvalue}}" placeholder="请输入搜索内容" bindinput="handleinput"/>
+	<button  size="mini" bindtap="handleCancle" hidden="{{isFoucs}}">取消</button>
+</view>
+<view class="search_content">
+	<view class="search_item" wx:for="{{search}}" wx:key="{{item.id}}">{{item.value}}</view>
+</view>

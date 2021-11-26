@@ -3,7 +3,7 @@
     "pages/index/index",
     "pages/category/index",
     "pages/goods_list/index",
-    "pages/goods_detailt/index",
+    "pages/goods_detail/index",
     "pages/cart/index",
     "pages/collect/index",
     "pages/order/index",
@@ -15,12 +15,11 @@
     "pages/pay/index"
   ],
   "window":{
-    "backgroundTextStyle":"light",
+    "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#e98f36",
     "navigationBarTitleText": "购物",
     "navigationBarTextStyle":"white",
-    "enablePullDownRefresh":true,
-    "backgroundColorTop":"yellow"
+    "enablePullDownRefresh":true
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",

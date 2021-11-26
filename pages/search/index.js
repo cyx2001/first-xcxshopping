@@ -1,66 +1,46 @@
 // pages/search/index.js
 Page({
+    data: {
+        //存储跟据搜索值返回的数据
+        search: [],
+        //控制取消按钮显示和隐藏
+        isFoucs: true,
+        inputvalue: ""
+    },
+    //防抖
+    timeer: -1,
+    handleinput(e) {
+        const { value } = e.detail;
+        //检查值是否合法
+        if (!value.trim()) {
+            this.setData({
+                isFoucs: true,
+                search: []
+            })
+            return;
+        }
+        this.setData({
+                isFoucs: false
+            })
+            //防抖函数，n秒之后在执行回调函数
+        clearTimeout(this.timeer);
+        this.timeer = setTimeout(() => {
+            this.searchresult(value);
+        }, 1000);
+    },
+    searchresult(value) {
+        let search = [];
+        search.push({ id: 1, value });
+        this.setData({
+            search
+        })
+    },
+    handleCancle() {
+        this.setData({
+            isFoucs: true,
+            search: [],
+            inputvalue: ""
+        })
+    }
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

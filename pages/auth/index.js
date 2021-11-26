@@ -1,66 +1,28 @@
 // pages/auth/index.js
 Page({
+    handleGetuserinfo(e) {
+        //获取用户信息
+        const {
+            encryptedData,
+            errMsg,
+            iv,
+            rawData
+        } = e.detail;
+        //获取用户登陆成功的code值
+        let code = "";
+        wx.login({
+                success: (res) => {
+                    code = res.code
+                },
+            })
+            //发送请求，根据用户信息和code信息获取用户的token,暂时没有办法获取；
+        let token = 1;
+        //加入到缓存
+        wx.setStorageSync('token', token);
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+        //返回支付页面
+        wx.navigateBack({
+            delta: 1
+        })
+    }
 })

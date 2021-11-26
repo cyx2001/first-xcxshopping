@@ -1,66 +1,58 @@
 // pages/order/index.js
+var data = require('../../data/index')
 Page({
+    data: {
+        tabs: [{
+                "id": 0,
+                "name": "全部",
+                "isActive": true
+            }, {
+                "id": 1,
+                "name": "待付款",
+                "isActive": false
+            }, {
+                "id": 2,
+                "name": "待收货",
+                "isActive": false
+            },
+            {
+                "id": 3,
+                "name": "退换货",
+                "isActive": false
+            }
+        ],
+        orderlist: []
+    },
+    onShow() {
+        let token = wx.getStorageSync('token');
+        if (!token) {
+            wx.navigateTo({
+                url: '../auth/index',
+            })
+            return;
+        }
+        let pages = getCurrentPages();
+        let { type } = pages[pages.length - 1].options;
+        this.changeItem(type - 1);
+        this.getOderlist(type);
+    },
+    getOderlist(type) {
+        let orderlist = data.order.message[type];
+        this.setData({
+            orderlist
+        })
+    },
+    changeItem(index) {
+        let { tabs } = this.data;
+        tabs.forEach((v, i) => i === index ? v.isActive = true : v.isActive = false)
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+        this.setData({
+            tabs
+        })
+    },
+    handleItemchange(e) {
+        let { index } = e.detail;
+        this.changeItem(index);
+        this.getOderlist(index + 1);
+    },
 })

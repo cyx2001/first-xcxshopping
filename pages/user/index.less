@@ -1,0 +1,106 @@
+page{
+    background-color: #edece8;
+}
+.user_info_wrap {
+    height: 45vh;
+    background-color: #ccc;
+    overflow: hidden;
+    position: relative;
+    .user_img_wrap {
+        .user_img_bg {
+            height: 50vh;
+            filter: blur(10rpx);}
+       .user_info{
+           position: absolute;
+           left: 50%;
+           top:30%;
+          transform: translateX(-50%);
+          text-align: center;
+          .user_info_avatar{
+              width: 120rpx;
+              height: 120rpx;
+              border-radius: 50%;
+          }
+          .user_info_name{
+              color: white;
+              margin-top: 20rpx;
+              font-size: 32rpx;
+          }
+      }
+    }.user_info_btn{
+        position: absolute;
+        top: 40%;
+        left:50%;
+        transform: translateX(-50%);
+        color: rgb(15, 117, 20);
+       border: 1rpx solid rgb(15, 117, 20);
+       padding: 20rpx;
+       font-size: 32rpx;
+
+    }
+  }
+  .user_content {
+      position: relative;
+    .user_main {
+        color: #666;
+        padding-bottom: 40rpx;
+        position: absolute;
+        width: 90%;
+        left:50%;
+        transform: translateX(-50%);
+        top:-40rpx;
+        .histroy_wrap{
+             display: flex;
+             background-color: #fff;
+             text-align: center;
+           navigator{
+               flex:1;
+              padding: 10rpx 0;
+            .ht_num {
+                color: var(--themecolor);
+            }
+           }
+        }
+        .order_wrap {
+            background-color: #fff;
+            margin-top: 20rpx;
+            .order_title {
+                border-bottom: 1rpx solid #ccc;
+                padding: 20rpx;
+            }
+            .order_content {
+                display: flex;
+                text-align: center;
+              navigator {
+                  flex:1;
+                  padding: 20rpx 0;
+                .iconfont {
+                color:var(--themecolor);
+                font-size: 40rpx;
+                }
+                .order_name {
+          
+                }
+              }
+            }
+          }
+          .address_wrap{
+            background-color: #fff;
+            padding: 20rpx;
+            margin-top: 30rpx;
+          }
+          .app_info_wrap{
+            background-color: #fff;
+            margin-top: 30rpx;
+            .app_info_item{
+                padding: 20rpx;
+                border-bottom: 1rpx solid #ccc;
+            }
+
+          }.recomend_wrap{
+            background-color: #fff;
+            padding: 20rpx;
+            margin-top: 30rpx;
+          }
+    }
+  }

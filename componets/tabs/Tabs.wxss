@@ -1,14 +1,16 @@
 
-.tabs-item {
+.tabs_title {
     display: flex;
 }
 
-.tabs-text {
+.tabs_text {
     flex: 1;
     padding: 10rpx;
-    background-color: rgb(221, 220, 220);
+    background-color:#fff;
+    text-align: center;
 }
 .active{
     background-color: #fff;
-    border-bottom: 2px solid red;
+    color: var(--themecolor);
+    border-bottom: 2px solid var(--themecolor);
 }
